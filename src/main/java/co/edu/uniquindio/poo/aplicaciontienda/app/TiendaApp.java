@@ -8,19 +8,17 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 
+import java.io.IOException;
 import java.lang.reflect.Array;
 import java.util.Arrays;
 
 public class TiendaApp extends Application {
-
+    public static Tienda tienda = new Tienda();
     @Override
     public void start(Stage stage) throws Exception {
-        try {
-            Tienda tienda = new Tienda();
-            //pedidos de prueba
-            ;
-        }catch () {
-    }
+        Tienda tienda = new Tienda();
+        //pedidos de prueba
+
 
     }
 
