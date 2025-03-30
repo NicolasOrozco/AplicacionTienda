@@ -7,7 +7,7 @@ import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 
-public class HistorialPedidosViewController {
+public class PedidosTotalesViewController {
 
     @FXML
     private TableColumn<?, ?> colDireccionPedido;
@@ -35,26 +35,6 @@ public class HistorialPedidosViewController {
 
     @FXML
     private TableColumn<?, ?> colIdPedido;
-
-    @FXML
-    void e0e0e0(ActionEvent event) {
-
-    }
-
-    @FXML
-    void 727272(ActionEvent event) {
-
-    }
-
-    @FXML
-    void 727272(ActionEvent event) {
-
-    }
-
-    @FXML
-    void 727272(ActionEvent event) {
-
-    }
 
     @FXML
     void onRegresar(ActionEvent event) {

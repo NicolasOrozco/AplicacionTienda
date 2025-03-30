@@ -1,36 +1,39 @@
 package co.edu.uniquindio.poo.aplicaciontienda.viewController;
 
+import java.net.URL;
+import java.util.ResourceBundle;
+
+import co.edu.uniquindio.poo.aplicaciontienda.model.PedidoDTO;
+import co.edu.uniquindio.poo.aplicaciontienda.model.Tienda;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.scene.control.Button;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
+import javafx.scene.control.cell.PropertyValueFactory;
 
-public class HomeViewController {
+public class HomeViewController{
 
-    @FXML
-    private TableColumn<?, ?> colDireccionPedido;
-
-    @FXML
-    private Button btnGestionarClientes;
+    private Tienda tienda;
 
     @FXML
-    private Button btnSalir;
+    private ResourceBundle resources;
 
     @FXML
-    private TableColumn<?, ?> colPedidoId;
+    private URL location;
 
     @FXML
-    private TableView<?> tablePedidosActivos;
+    private TableColumn<PedidoDTO, String> colDireccionPedido;
 
     @FXML
-    private TableColumn<?, ?> colClientePedido;
+    private TableColumn<PedidoDTO,String> colPedidoId;
 
     @FXML
-    private Button btnGesrionarProductos;
+    private TableView<PedidoDTO> tablePedidosActivos;
 
     @FXML
-    private Button btnGestionarPedidos;
+    private TableColumn<PedidoDTO, String> colClientePedido;
 
     @FXML
     void onGestionarPedidos(ActionEvent event) {
@@ -52,30 +55,19 @@ public class HomeViewController {
 
     }
 
-    @FXML
-    void e0e0e0(ActionEvent event) {
-
+    public void setTienda(Tienda tienda){
+        this.tienda=tienda;
+        cargarPedidos();
     }
 
-    @FXML
-    void 727272(ActionEvent event) {
+    public void cargarPedidos(){
+        if (tienda!=null){
+            colPedidoId.setCellValueFactory(new PropertyValueFactory<>("id"));
+            colClientePedido.setCellValueFactory(new PropertyValueFactory<>("cliente"));
+            colDireccionPedido.setCellValueFactory(new PropertyValueFactory<>("direccion"));
 
+            ObservableList<PedidoDTO> pedidos = FXCollections.observableArrayList(tienda.getPedidos());
+            tablePedidosActivos.setItems(pedidos);
+        }
     }
-
-    @FXML
-    void 727272(ActionEvent event) {
-
-    }
-
-    @FXML
-    void 727272(ActionEvent event) {
-
-    }
-
-    @FXML
-    void e0e0e0(ActionEvent event) {
-
-    }
-
 }
-

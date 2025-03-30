@@ -4,14 +4,11 @@ import java.util.LinkedList;
 
 public class Tienda {
 
-    public LinkedList<ClienteDTO> clientes;
-    public LinkedList<ProductoRecord> productos;
-    public LinkedList<PedidoDTO> pedidos;
+    public LinkedList<ClienteDTO> clientes = new LinkedList<>();
+    public LinkedList<ProductoRecord> productos = new LinkedList<>();
+    public LinkedList<PedidoDTO> pedidos = new LinkedList<>();
 
-    public Tienda(LinkedList<ClienteDTO> clientes, LinkedList<ProductoRecord> productos, LinkedList<PedidoDTO> pedidos) {
-        clientes = new LinkedList<>(clientes);
-        productos = new LinkedList<>(productos);
-        pedidos = new LinkedList<>(pedidos);
+    public Tienda() {
     }
 
     //-------------CRUD CLIENTE-------------//

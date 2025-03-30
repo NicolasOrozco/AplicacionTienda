@@ -1,67 +1,135 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.geometry.*?>
-<?import java.net.*?>
 <?import javafx.scene.control.*?>
-<?import javafx.scene.paint.*?>
-<?import javafx.scene.text.*?>
-<?import javafx.scene.shape.*?>
-<?import java.lang.*?>
 <?import javafx.scene.layout.*?>
-
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="425.0" prefWidth="600.0" style="-fx-background-color: #121212;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
-   <children>
-      <HBox layoutX="5.0" layoutY="62.0" prefHeight="352.0" prefWidth="584.0">
-         <children>
-            <VBox prefHeight="343.0" prefWidth="251.0" spacing="15.0">
-               <children>
-                  <Button fx:id="btnAgregarProductoAPedido" mnemonicParsing="false" prefHeight="38.0" prefWidth="188.0" stylesheets="@../styles/buttonstyle.css" text="Agregar Producto">
-                     <VBox.margin>
-                        <Insets bottom="15.0" left="30.0" right="30.0" />
-                     </VBox.margin>
-                  </Button>
-                  <Button fx:id="btnGestionarClientes" mnemonicParsing="false" prefHeight="38.0" prefWidth="188.0" stylesheets="@../styles/buttonstyle.css" text="Crear Pedido">
-                     <VBox.margin>
-                        <Insets bottom="15.0" left="30.0" right="30.0" />
-                     </VBox.margin>
-                  </Button>
-                  <Button fx:id="btnRegresar" mnemonicParsing="false" prefHeight="38.0" prefWidth="188.0" stylesheets="@../styles/buttonstyle.css" text="Ver todos los pedidos">
-                     <VBox.margin>
-                        <Insets bottom="60.0" left="30.0" right="30.0" />
-                     </VBox.margin></Button>
-                  <Button fx:id="btnRegresar" mnemonicParsing="false" prefHeight="38.0" prefWidth="188.0" stylesheets="@../styles/buttonstyle.css" text="Regresar">
-                     <VBox.margin>
-                        <Insets left="30.0" right="30.0" />
-                     </VBox.margin>
-                  </Button>
-               </children>
-               <HBox.margin>
-                  <Insets bottom="10.0" left="10.0" right="10.0" top="40.0" />
-               </HBox.margin></VBox>
-            <TableView fx:id="tableProductos" prefHeight="343.0" prefWidth="334.0">
-              <columns>
-                <TableColumn fx:id="colNombreProducto" prefWidth="159.0" text="Nombre" />
-                <TableColumn fx:id="colPrecioProducto" prefWidth="163.0" text="Precio" />
-              </columns>
-               <stylesheets>
-                  <URL value="@../styles/styles.css" />
-                  <URL value="@../styles/tablestyle.css" />
-               </stylesheets>
-            </TableView>
-         </children>
-      </HBox>
-      <Text fill="#e0e0e0" layoutX="8.0" layoutY="23.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Gestion de pedidos" wrappingWidth="266.755859375">
-         <font>
-            <Font name="Century Gothic Bold" size="20.0" />
-         </font>
-      </Text>
-      <Line endX="100.0" fill="BLACK" layoutX="101.0" layoutY="33.0" startX="-100.0" stroke="#727272" strokeWidth="2.0" />
-      <Line endX="100.0" layoutX="302.0" layoutY="33.0" startX="-100.0" stroke="#727272" strokeWidth="2.0" />
-      <Line endX="100.0" layoutX="499.0" layoutY="33.0" startX="-100.0" stroke="#727272" strokeWidth="2.0" />
-      <Text fill="#e0e0e0" layoutX="356.0" layoutY="55.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Productos " textAlignment="CENTER" wrappingWidth="162.755859375">
-         <font>
-            <Font name="Century Gothic Bold" size="18.0" />
-         </font>
-      </Text>
-   </children>
+<?import javafx.scene.shape.Line?>
+<?import javafx.scene.text.*?>
+<?import java.net.URL?>
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="425.0"
+            prefWidth="600.0" style="-fx-background-color: #121212;" xmlns="http://javafx.com/javafx/8"
+            xmlns:fx="http://javafx.com/fxml/1">
+   <HBox layoutX="5.0" layoutY="62.0" prefHeight="352.0" prefWidth="584.0">
+      <VBox prefHeight="349.0" prefWidth="236.0" spacing="10.0">
+         <HBox.margin>
+            <Insets left="10.0" right="10.0" top="10.0"/>
+         </HBox.margin>
+         <GridPane>
+            <columnConstraints>
+               <ColumnConstraints hgrow="SOMETIMES" maxWidth="113.66667175292969" minWidth="10.0"
+                                  prefWidth="99.66666412353516"/>
+               <ColumnConstraints hgrow="SOMETIMES" maxWidth="133.33333587646484" minWidth="10.0"
+                                  prefWidth="133.33333587646484"/>
+            </columnConstraints>
+            <rowConstraints>
+               <RowConstraints maxHeight="30.333335876464844" minHeight="10.0" prefHeight="27.666671752929688"
+                               vgrow="SOMETIMES"/>
+               <RowConstraints maxHeight="43.333335876464844" minHeight="10.0" prefHeight="27.333328247070312"
+                               vgrow="SOMETIMES"/>
+               <RowConstraints maxHeight="43.333335876464844" minHeight="1.0" prefHeight="27.666656494140625"
+                               vgrow="SOMETIMES"/>
+               <RowConstraints maxHeight="48.666664123535156" minHeight="10.0" prefHeight="30.333343505859375"
+                               vgrow="SOMETIMES"/>
+            </rowConstraints>
+            <TextField fx:id="txtfieldIdCliente" prefHeight="0.0" prefWidth="134.0"
+                       style="-fx-background-color: #363636FF;" GridPane.columnIndex="1"/>
+            <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="Id del Cliente:"
+                  wrappingWidth="108.78841400146484">
+               <font>
+                  <Font name="Century Gothic Italic" size="13.0"/>
+               </font>
+            </Text>
+            <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="Codigo Postal:"
+                  wrappingWidth="91.455078125" GridPane.rowIndex="2">
+               <font>
+                  <Font name="Century Gothic Italic" size="12.0"/>
+               </font>
+            </Text>
+            <TextField fx:id="txtfieldCalle" prefHeight="0.0" prefWidth="134.0"
+                       style="-fx-background-color: #363636FF;" GridPane.columnIndex="1"
+                       GridPane.rowIndex="3"/>
+            <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="Ciudad:"
+                  wrappingWidth="91.455078125" GridPane.rowIndex="1">
+               <font>
+                  <Font name="Century Gothic Italic" size="12.0"/>
+               </font>
+            </Text>
+            <TextField fx:id="txtfieldCiudad" prefHeight="0.0" prefWidth="134.0"
+                       style="-fx-background-color: #363636FF;" GridPane.columnIndex="1"
+                       GridPane.rowIndex="1"/>
+            <TextField fx:id="txtfieldCodigoPostal" prefHeight="0.0" prefWidth="134.0"
+                       style="-fx-background-color: #363636FF;" GridPane.columnIndex="1"
+                       GridPane.rowIndex="2"/>
+            <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="Calle:"
+                  wrappingWidth="91.455078125" GridPane.rowIndex="3">
+               <font>
+                  <Font name="Century Gothic Italic" size="12.0"/>
+               </font>
+            </Text>
+         </GridPane>
+         <Button mnemonicParsing="false" onAction="#onAgregarProductoAPedido" prefHeight="0.0" prefWidth="176.0"
+                 stylesheets="@../styles/buttonstyle.css" text="Agregar Producto">
+            <VBox.margin>
+               <Insets left="30.0" right="30.0" top="10.0"/>
+            </VBox.margin>
+         </Button>
+         <Button mnemonicParsing="false" onAction="#onCrearPedido" prefHeight="11.0" prefWidth="176.0"
+                 stylesheets="@../styles/buttonstyle.css" text="Crear Pedido">
+            <VBox.margin>
+               <Insets bottom="10.0" left="30.0" right="30.0"/>
+            </VBox.margin>
+            <padding>
+               <Insets bottom="10.0"/>
+            </padding>
+         </Button>
+         <Line endX="100.0" fill="BLACK" startX="-100.0" stroke="#727272" strokeWidth="2.0">
+            <VBox.margin>
+               <Insets left="15.0"/>
+            </VBox.margin>
+         </Line>
+         <Button mnemonicParsing="false" onAction="#onVerTodosLosPedidos" prefHeight="12.0" prefWidth="176.0"
+                 stylesheets="@../styles/buttonstyle.css" text="Ver todos los pedidos">
+            <VBox.margin>
+               <Insets left="30.0" right="30.0" top="10.0"/>
+            </VBox.margin>
+         </Button>
+         <Button mnemonicParsing="false" onAction="#onRegresar" prefHeight="7.0" prefWidth="176.0"
+                 stylesheets="@../styles/buttonstyle.css" text="Regresar">
+            <VBox.margin>
+               <Insets left="30.0" right="30.0"/>
+            </VBox.margin>
+         </Button>
+      </VBox>
+      <TableView fx:id="tableProductos" prefHeight="352.0" prefWidth="324.0">
+         <columns>
+            <TableColumn fx:id="colNombreProducto" prefWidth="159.0" text="Nombre"/>
+            <TableColumn fx:id="colPrecioProducto" prefWidth="163.0" text="Precio"/>
+         </columns>
+         <stylesheets>
+            <URL value="@../styles/styles.css"/>
+            <URL value="@../styles/tablestyle.css"/>
+         </stylesheets>
+      </TableView>
+   </HBox>
+   <Text fill="#e0e0e0" layoutX="8.0" layoutY="23.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Gestion de pedidos"
+         wrappingWidth="266.755859375">
+      <font>
+         <Font name="Century Gothic Bold" size="20.0"/>
+      </font>
+   </Text>
+   <Line endX="100.0" fill="BLACK" layoutX="101.0" layoutY="33.0" startX="-100.0" stroke="#727272" strokeWidth="2.0"/>
+   <Line endX="100.0" layoutX="302.0" layoutY="33.0" startX="-100.0" stroke="#727272" strokeWidth="2.0"/>
+   <Line endX="100.0" layoutX="499.0" layoutY="33.0" startX="-100.0" stroke="#727272" strokeWidth="2.0"/>
+   <Text fill="#e0e0e0" layoutX="356.0" layoutY="55.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Productos "
+         textAlignment="CENTER" wrappingWidth="162.755859375">
+      <font>
+         <Font name="Century Gothic Bold" size="18.0"/>
+      </font>
+   </Text>
+   <Text fill="WHITE" layoutX="12.0" layoutY="60.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Crear Pedido:"
+         wrappingWidth="195.455078125">
+      <font>
+         <Font name="Century Gothic Bold" size="15.0"/>
+      </font>
+   </Text>
 </AnchorPane>

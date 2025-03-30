@@ -3,9 +3,9 @@ package co.edu.uniquindio.poo.aplicaciontienda.model;
 import java.util.LinkedList;
 
 public class PedidoDTO {
-    private String id;
+    private final String id;
     private ClienteDTO cliente;
-    private LinkedList<ProductoRecord> productos;
+    private final LinkedList<ProductoRecord> productos;
     private DireccionRecord direccion;
     private Estado estado;
 
