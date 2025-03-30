@@ -3,25 +3,35 @@ package co.edu.uniquindio.poo.aplicaciontienda.model;
 import java.util.LinkedList;
 
 public class PedidoDTO {
+    private String id;
     private ClienteDTO cliente;
     private LinkedList<ProductoRecord> productos;
-    private String estado;
+    private DireccionRecord direccion;
+    private Estado estado;
 
-    public PedidoDTO(ClienteDTO cliente) {
+    public PedidoDTO(String id, ClienteDTO cliente, DireccionRecord direccion) {
+        this.id = id;
         this.cliente = cliente;
         productos = new LinkedList<>();
-        this.estado = "Pendiente";
+        this.direccion = direccion;
+        this.estado = Estado.PENDIENTE;
     }
 
     //-------------Getters y Setters-------------//
+
+    public String getId() { return id; }
 
     public ClienteDTO getCliente() { return cliente; }
 
     public LinkedList<ProductoRecord> getProductos() { return productos; }
 
-    public String getEstado() { return estado; }
+    public DireccionRecord getDireccion() { return direccion; }
 
-    public void setEstado(String estado) { this.estado = estado; }
+    public Estado getEstado() { return estado; }
+
+    public void setEstado(Estado estado) { this.estado = estado; }
+
+    public void setDireccion(DireccionRecord direccion) { this.direccion = direccion; }
 
     public void setCliente(ClienteDTO cliente) { this.cliente = cliente; }
 

@@ -1,0 +1,13 @@
+.text-field {
+    -fx-background-color: #252525;
+    -fx-text-fill: #E0E0E0;
+    -fx-font-size: 14px;
+    -fx-padding: 4px 8px;
+    -fx-border-radius: 3px;
+    -fx-background-radius: 3px;
+    -fx-border-color: #3A3A3A;
+    -fx-prompt-text-fill: #888;
+    -fx-min-width: auto;
+    -fx-pref-width: auto;
+    -fx-max-width: auto;
+}

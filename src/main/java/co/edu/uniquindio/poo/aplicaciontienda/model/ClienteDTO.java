@@ -2,34 +2,33 @@ package co.edu.uniquindio.poo.aplicaciontienda.model;
 
 public class ClienteDTO {
     private String nombre;
-    private DireccionRecord direccion;
+    private String id;
 
     /**
      * Método Constructor de la clase
      * @param nombre del cliente
-     * @param direccion
+     * @param id del cliente
      */
-    public ClienteDTO(String nombre, DireccionRecord direccion) {
+    public ClienteDTO(String nombre, String id) {
         this.nombre = nombre;
-        this.direccion = direccion;
+        this.id = id;
     }
 
-    //-------------Getters y Setters-------------/
+    //-------------Getters y Setters-------------//
 
     public String getNombre() {
         return nombre;
     }
 
-    public DireccionRecord getDireccion() {
-        return direccion;
+    public String getId() {
+        return id;
     }
 
     public void setNombre(String nombre) {
         this.nombre = nombre;
     }
 
-    public void setDireccion(DireccionRecord direccion) {
-        this.direccion = direccion;
+    public void setId(String id) {
+        this.id = id;
     }
-
 }

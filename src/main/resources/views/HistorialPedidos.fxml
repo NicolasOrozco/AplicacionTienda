@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import java.net.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.paint.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.scene.shape.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="425.0" prefWidth="600.0" style="-fx-background-color: #121212;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <Text fill="#e0e0e0" layoutX="8.0" layoutY="23.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Todos los pedidos" wrappingWidth="193.255859375">
+         <font>
+            <Font name="Century Gothic Bold" size="20.0" />
+         </font>
+      </Text>
+      <Line endX="100.0" fill="BLACK" layoutX="101.0" layoutY="33.0" startX="-100.0" stroke="#727272" strokeWidth="2.0" />
+      <Line endX="100.0" layoutX="302.0" layoutY="33.0" startX="-100.0" stroke="#727272" strokeWidth="2.0" />
+      <Line endX="100.0" layoutX="499.0" layoutY="33.0" startX="-100.0" stroke="#727272" strokeWidth="2.0" />
+      <VBox layoutX="11.0" layoutY="43.0" prefHeight="255.0" prefWidth="575.0">
+         <children>
+            <VBox prefHeight="245.0" prefWidth="575.0" VBox.vgrow="NEVER">
+               <children>
+                  <TableView fx:id="tableHistorialPedidos" prefHeight="247.0" prefWidth="575.0">
+                    <columns>
+                      <TableColumn fx:id="colIdPedido" prefWidth="118.5" text="Id" />
+                      <TableColumn fx:id="colClientePedido" prefWidth="154.0" text="Cliente" />
+                        <TableColumn fx:id="colDireccionPedido" prefWidth="154.0" text="Direccion" />
+                        <TableColumn fx:id="colEstadoPedido" prefWidth="147.0" text="Estado" />
+                    </columns>
+                     <stylesheets>
+                        <URL value="@../styles/styles.css" />
+                        <URL value="@../styles/tablestyle.css" />
+                     </stylesheets>
+                  </TableView>
+               </children>
+            </VBox>
+         </children>
+      </VBox>
+      <Button fx:id="btnRegresar" layoutX="266.0" layoutY="368.0" mnemonicParsing="false" onAction="#onRegresar" prefHeight="28.0" prefWidth="96.0" stylesheets="@../styles/buttonstyle.css" text="Regresar">
+         <font>
+            <Font name="Century Gothic" size="10.0" />
+         </font>
+      </Button>
+      <TextField fx:id="txtfieldIdpedido" layoutX="178.0" layoutY="313.0" prefHeight="30.0" prefWidth="169.0" promptText="Ingrese el id del pedido" stylesheets="@../styles/textfieldstyle.css" />
+      <Button fx:id="btnBuscarPedido" layoutX="364.0" layoutY="311.0" mnemonicParsing="false" onAction="#onBuscarPedido" prefHeight="16.0" prefWidth="96.0" stylesheets="@../styles/buttonstyle.css" text="Buscar">
+         <font>
+            <Font name="Century Gothic" size="10.0" />
+         </font>
+      </Button>
+      <Button fx:id="btnEliminarPedido" layoutX="479.0" layoutY="311.0" mnemonicParsing="false" onAction="#onEliminarPedido" prefHeight="16.0" prefWidth="96.0" stylesheets="@../styles/buttonstyle.css" text="Eliminar">
+         <font>
+            <Font name="Century Gothic" size="10.0" />
+         </font>
+      </Button>
+      <Text fill="#e0e0e0" layoutX="21.0" layoutY="332.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Buscar pedido:" wrappingWidth="146.255859375">
+         <font>
+            <Font name="Century Gothic Bold" size="20.0" />
+         </font>
+      </Text>
+   </children>
+</AnchorPane>
