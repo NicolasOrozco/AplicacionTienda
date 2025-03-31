@@ -159,9 +159,11 @@ public class Tienda {
     }
 
     //-------------CRUD PRODUCTO-------------//
+
     public void agregarProducto(ProductoRecord producto) {
         productos.add(producto);
     }
+
     public void eliminarProducto(String name){
         productos.removeIf(productoRecord -> productoRecord.nombre().equals(name));
     }

@@ -20,4 +20,6 @@ public class GestionProductosController {
     public LinkedList<ProductoRecord> obtenerProductos(){
         return tienda.getProductos();
     }
+
+    public void eliminarProducto(String nombre){tienda.eliminarProducto(nombre);}
 }

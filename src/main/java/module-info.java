@@ -3,7 +3,7 @@ module co.edu.uniquindio.poo.aplicaciontienda {
     requires javafx.fxml;
 
     // Abre los paquetes que contienen FXML y controladores
-    opens co.edu.uniquindio.poo.aplicaciontienda to javafx.fxml;
+    opens co.edu.uniquindio.poo.aplicaciontienda.viewController to javafx.fxml;
     opens views to javafx.fxml;
     opens styles to javafx.fxml;
 

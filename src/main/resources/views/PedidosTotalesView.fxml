@@ -1,140 +1,133 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import java.lang.*?>
+<?import java.net.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.shape.*?>
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.shape.Line?>
 <?import javafx.scene.text.*?>
 <?import java.net.URL?>
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="425.0"
-            prefWidth="600.0" style="-fx-background-color: #121212;" xmlns="http://javafx.com/javafx/8"
-            xmlns:fx="http://javafx.com/fxml/1">
-   <Text fill="#e0e0e0" layoutX="8.0" layoutY="23.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Todos los pedidos"
-         wrappingWidth="193.255859375">
-      <font>
-         <Font name="Century Gothic Bold" size="20.0"/>
-      </font>
-   </Text>
-   <Line endX="100.0" fill="BLACK" layoutX="101.0" layoutY="33.0" startX="-100.0" stroke="#727272" strokeWidth="2.0"/>
-   <Line endX="100.0" layoutX="302.0" layoutY="33.0" startX="-100.0" stroke="#727272" strokeWidth="2.0"/>
-   <Line endX="100.0" layoutX="499.0" layoutY="33.0" startX="-100.0" stroke="#727272" strokeWidth="2.0"/>
-   <VBox layoutX="11.0" layoutY="43.0" prefHeight="375.0" prefWidth="575.0" spacing="15.0">
-      <GridPane hgap="10.0" prefHeight="20.0" prefWidth="577.0">
-         <columnConstraints>
-            <ColumnConstraints hgrow="SOMETIMES" maxWidth="151.0" minWidth="10.0" prefWidth="149.0"/>
-            <ColumnConstraints hgrow="SOMETIMES" maxWidth="151.0" minWidth="10.0" prefWidth="61.0"/>
-            <ColumnConstraints hgrow="SOMETIMES" maxWidth="187.0" minWidth="10.0" prefWidth="181.0"/>
-            <ColumnConstraints hgrow="SOMETIMES" maxWidth="159.0" minWidth="10.0" prefWidth="79.0"/>
-            <ColumnConstraints hgrow="SOMETIMES" maxWidth="215.0" minWidth="10.0" prefWidth="86.0"/>
-         </columnConstraints>
-         <rowConstraints>
-            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES"/>
-         </rowConstraints>
-         <Text fill="#e0e0e0" strokeType="OUTSIDE" strokeWidth="0.0" text="Buscar pedido:"
-               wrappingWidth="146.255859375">
-            <font>
-               <Font name="Century Gothic Italic" size="14.0"/>
-            </font>
-         </Text>
-         <TextField fx:id="txtfieldIdpedido" prefHeight="30.0" prefWidth="169.0"
-                    promptText="Ingrese el id del pedido" stylesheets="@../styles/textfieldstyle.css"
-                    GridPane.columnIndex="2"/>
-         <Button mnemonicParsing="false" onAction="#onBuscarPedido" prefHeight="16.0" prefWidth="96.0"
-                 stylesheets="@../styles/buttonstyle.css" text="Buscar" GridPane.columnIndex="3">
-            <font>
-               <Font name="Century Gothic" size="10.0"/>
-            </font>
-         </Button>
-         <Button mnemonicParsing="false" onAction="#onEliminarPedido" prefHeight="16.0" prefWidth="96.0"
-                 stylesheets="@../styles/buttonstyle.css" text="Eliminar" GridPane.columnIndex="4">
-            <font>
-               <Font name="Century Gothic" size="10.0"/>
-            </font>
-         </Button>
-      </GridPane>
-      <TableView fx:id="tableTotalPedidos" prefHeight="204.0" prefWidth="575.0">
-         <columns>
-            <TableColumn fx:id="colIdPedido" prefWidth="118.5" text="Id"/>
-            <TableColumn fx:id="colClientePedido" prefWidth="154.0" text="Cliente"/>
-            <TableColumn fx:id="colDireccionPedido" prefWidth="154.0" text="Direccion"/>
-            <TableColumn fx:id="colEstadoPedido" prefWidth="147.0" text="Estado"/>
-         </columns>
-         <stylesheets>
-            <URL value="@../styles/styles.css"/>
-            <URL value="@../styles/tablestyle.css"/>
-         </stylesheets>
-      </TableView>
-      <GridPane hgap="10.0" prefHeight="69.0" prefWidth="574.0">
-         <columnConstraints>
-            <ColumnConstraints hgrow="SOMETIMES" maxWidth="151.0" minWidth="10.0" prefWidth="138.66665649414062"/>
-            <ColumnConstraints hgrow="SOMETIMES" maxWidth="179.0" minWidth="10.0" prefWidth="104.66667175292969"/>
-            <ColumnConstraints hgrow="SOMETIMES" maxWidth="187.0" minWidth="10.0" prefWidth="83.33334350585938"/>
-            <ColumnConstraints hgrow="SOMETIMES" maxWidth="159.0" minWidth="10.0" prefWidth="107.66665649414062"/>
-            <ColumnConstraints hgrow="SOMETIMES" maxWidth="215.0" minWidth="10.0" prefWidth="101.33331298828125"/>
-         </columnConstraints>
-         <rowConstraints>
-            <RowConstraints maxHeight="46.0" minHeight="10.0" prefHeight="29.0" vgrow="SOMETIMES"/>
-            <RowConstraints maxHeight="46.0" minHeight="10.0" prefHeight="16.0" vgrow="SOMETIMES"/>
-            <RowConstraints maxHeight="38.666656494140625" minHeight="9.66668701171875" prefHeight="23.0"
-                            vgrow="SOMETIMES"/>
-         </rowConstraints>
-         <VBox.margin>
-            <Insets/>
-         </VBox.margin>
-         <Text fill="#e0e0e0" strokeType="OUTSIDE" strokeWidth="0.0" text="Editar Pedido:"
-               wrappingWidth="146.255859375">
-            <font>
-               <Font name="Century Gothic Bold" size="18.0"/>
-            </font>
-         </Text>
-         <TextField fx:id="txtfieldIdCliente" prefHeight="30.0" prefWidth="100.0" promptText="Id cliente"
-                    stylesheets="@../styles/textfieldstyle.css" GridPane.columnIndex="1">
-            <font>
-               <Font size="7.0"/>
-            </font>
-         </TextField>
-         <Text fill="#e0e0e0" strokeType="OUTSIDE" strokeWidth="0.0" text="Seleccione el pedido antes"
-               wrappingWidth="146.255859375" GridPane.rowIndex="1">
-            <font>
-               <Font name="Century Gothic Italic" size="10.0"/>
-            </font>
-         </Text>
-         <Button mnemonicParsing="false" onAction="#onEditarPedido" prefHeight="16.0" prefWidth="96.0"
-                 stylesheets="@../styles/buttonstyle.css" text="Editar" GridPane.columnIndex="4"
-                 GridPane.rowIndex="2">
-            <font>
-               <Font name="Century Gothic" size="10.0"/>
-            </font>
-         </Button>
-         <TextField fx:id="txtfieldCiudad" prefHeight="30.0" prefWidth="100.0" promptText="Ciudad"
-                    stylesheets="@../styles/textfieldstyle.css" GridPane.columnIndex="2">
-            <font>
-               <Font size="7.0"/>
-            </font>
-         </TextField>
-         <TextField fx:id="txtfieldCodigoPostal" prefHeight="30.0" prefWidth="100.0" promptText="Codigo Postal"
-                    stylesheets="@../styles/textfieldstyle.css" GridPane.columnIndex="3">
-            <font>
-               <Font size="7.0"/>
-            </font>
-         </TextField>
-         <TextField fx:id="txtfieldCalle" prefHeight="30.0" prefWidth="100.0" promptText="Calle"
-                    stylesheets="@../styles/textfieldstyle.css" GridPane.columnIndex="4">
-            <font>
-               <Font size="7.0"/>
-            </font>
-         </TextField>
-         <ComboBox fx:id="comboEstado" prefWidth="150.0" promptText="Estado" GridPane.columnIndex="3"
-                   GridPane.rowIndex="2"/>
-      </GridPane>
-      <Button mnemonicParsing="false" onAction="#onRegresar" prefHeight="28.0" prefWidth="96.0"
-              stylesheets="@../styles/buttonstyle.css" text="Regresar">
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="547.0" prefWidth="783.0" style="-fx-background-color: #121212;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="co.edu.uniquindio.poo.aplicaciontienda.viewController.PedidosTotalesViewController">
+   <children>
+      <Text fill="#e0e0e0" layoutX="8.0" layoutY="23.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Todos los pedidos" wrappingWidth="193.255859375">
          <font>
-            <Font name="Century Gothic" size="10.0"/>
+            <Font name="Century Gothic Bold" size="20.0" />
          </font>
-         <VBox.margin>
-            <Insets/>
-         </VBox.margin>
-      </Button>
-   </VBox>
+      </Text>
+      <Line endX="100.0" fill="BLACK" layoutX="101.0" layoutY="33.0" startX="-100.0" stroke="#727272" strokeWidth="2.0" />
+      <Line endX="100.0" layoutX="302.0" layoutY="33.0" startX="-100.0" stroke="#727272" strokeWidth="2.0" />
+      <Line endX="100.0" layoutX="499.0" layoutY="33.0" startX="-100.0" stroke="#727272" strokeWidth="2.0" />
+      <VBox layoutX="11.0" layoutY="43.0" prefHeight="500.0" prefWidth="768.0" spacing="15.0">
+         <children>
+            <GridPane hgap="10.0" prefHeight="20.0" prefWidth="577.0">
+               <columnConstraints>
+                  <ColumnConstraints hgrow="SOMETIMES" maxWidth="151.0" minWidth="10.0" prefWidth="149.0" />
+                  <ColumnConstraints hgrow="SOMETIMES" maxWidth="151.0" minWidth="10.0" prefWidth="61.0" />
+                  <ColumnConstraints hgrow="SOMETIMES" maxWidth="187.0" minWidth="10.0" prefWidth="181.0" />
+                  <ColumnConstraints hgrow="SOMETIMES" maxWidth="159.0" minWidth="10.0" prefWidth="79.0" />
+                  <ColumnConstraints hgrow="SOMETIMES" maxWidth="215.0" minWidth="10.0" prefWidth="86.0" />
+               </columnConstraints>
+               <rowConstraints>
+                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+               </rowConstraints>
+               <children>
+                  <Text fill="#e0e0e0" strokeType="OUTSIDE" strokeWidth="0.0" text="Buscar pedido:" wrappingWidth="146.255859375">
+                     <font>
+                        <Font name="Century Gothic Italic" size="18.0" />
+                     </font>
+                  </Text>
+                  <TextField fx:id="txtfieldIdpedido" prefHeight="30.0" prefWidth="169.0" promptText="Ingrese el id del pedido" stylesheets="@../styles/textfieldstyle.css" GridPane.columnIndex="2" />
+                  <Button mnemonicParsing="false" onAction="#onBuscarPedido" prefHeight="16.0" prefWidth="96.0" stylesheets="@../styles/buttonstyle.css" text="Buscar" GridPane.columnIndex="3">
+                     <font>
+                        <Font name="Century Gothic" size="10.0" />
+                     </font>
+                  </Button>
+                  <Button mnemonicParsing="false" onAction="#onEliminarPedido" prefHeight="16.0" prefWidth="96.0" stylesheets="@../styles/buttonstyle.css" text="Eliminar" GridPane.columnIndex="4">
+                     <font>
+                        <Font name="Century Gothic" size="10.0" />
+                     </font>
+                  </Button>
+               </children>
+            </GridPane>
+            <TableView fx:id="tableTotalPedidos" prefHeight="310.0" prefWidth="768.0">
+               <columns>
+                  <TableColumn fx:id="colIdPedido" prefWidth="118.5" text="Id" />
+                  <TableColumn fx:id="colClientePedido" prefWidth="197.0" text="Cliente" />
+                  <TableColumn fx:id="colDireccionPedido" prefWidth="193.0" text="Direccion" />
+                  <TableColumn fx:id="colEstadoPedido" prefWidth="254.0" text="Estado" />
+               </columns>
+               <stylesheets>
+                  <URL value="@../styles/tablestyle.css" />
+               </stylesheets>
+            </TableView>
+            <GridPane hgap="10.0" prefHeight="69.0" prefWidth="574.0" vgap="15.0">
+               <columnConstraints>
+                  <ColumnConstraints hgrow="SOMETIMES" maxWidth="151.0" minWidth="10.0" prefWidth="138.66665649414062" />
+                  <ColumnConstraints hgrow="SOMETIMES" maxWidth="179.0" minWidth="10.0" prefWidth="104.66667175292969" />
+                  <ColumnConstraints hgrow="SOMETIMES" maxWidth="187.0" minWidth="10.0" prefWidth="83.33334350585938" />
+                  <ColumnConstraints hgrow="SOMETIMES" maxWidth="159.0" minWidth="10.0" prefWidth="107.66665649414062" />
+                  <ColumnConstraints hgrow="SOMETIMES" maxWidth="215.0" minWidth="10.0" prefWidth="101.33331298828125" />
+               </columnConstraints>
+               <rowConstraints>
+                  <RowConstraints maxHeight="46.0" minHeight="10.0" prefHeight="29.0" vgrow="SOMETIMES" />
+                  <RowConstraints maxHeight="38.666656494140625" minHeight="9.66668701171875" prefHeight="23.0" vgrow="SOMETIMES" />
+               </rowConstraints>
+               <VBox.margin>
+                  <Insets />
+               </VBox.margin>
+               <children>
+                  <Text fill="#e0e0e0" strokeType="OUTSIDE" strokeWidth="0.0" text="Editar Pedido:" wrappingWidth="146.255859375">
+                     <font>
+                        <Font name="Century Gothic Bold" size="18.0" />
+                     </font>
+                  </Text>
+                  <TextField fx:id="txtfieldIdCliente" prefHeight="30.0" prefWidth="100.0" promptText="Id cliente" stylesheets="@../styles/textfieldstyle.css" GridPane.columnIndex="1">
+                     <font>
+                        <Font size="7.0" />
+                     </font>
+                  </TextField>
+                  <Text fill="#e0e0e0" strokeType="OUTSIDE" strokeWidth="0.0" text="Seleccione el pedido antes" wrappingWidth="110.255859375" GridPane.rowIndex="1">
+                     <font>
+                        <Font name="Century Gothic Italic" size="15.0" />
+                     </font>
+                  </Text>
+                  <Button mnemonicParsing="false" onAction="#onEditarPedido" prefHeight="16.0" prefWidth="96.0" stylesheets="@../styles/buttonstyle.css" text="Editar" GridPane.columnIndex="4" GridPane.rowIndex="1">
+                     <font>
+                        <Font name="Century Gothic" size="10.0" />
+                     </font>
+                  </Button>
+                  <TextField fx:id="txtfieldCiudad" prefHeight="30.0" prefWidth="100.0" promptText="Ciudad" stylesheets="@../styles/textfieldstyle.css" GridPane.columnIndex="2">
+                     <font>
+                        <Font size="7.0" />
+                     </font>
+                  </TextField>
+                  <TextField fx:id="txtfieldCodigoPostal" prefHeight="30.0" prefWidth="100.0" promptText="Codigo Postal" stylesheets="@../styles/textfieldstyle.css" GridPane.columnIndex="3">
+                     <font>
+                        <Font size="7.0" />
+                     </font>
+                  </TextField>
+                  <TextField fx:id="txtfieldCalle" prefHeight="30.0" prefWidth="100.0" promptText="Calle" stylesheets="@../styles/textfieldstyle.css" GridPane.columnIndex="4">
+                     <font>
+                        <Font size="7.0" />
+                     </font>
+                  </TextField>
+                  <ComboBox fx:id="comboEstado" prefWidth="150.0" promptText="Estado" stylesheets="@../styles/buttonstyle.css" GridPane.columnIndex="3" GridPane.rowIndex="1" />
+               </children>
+            </GridPane>
+            <Button mnemonicParsing="false" onAction="#onRegresar" prefHeight="28.0" prefWidth="96.0" stylesheets="@../styles/buttonstyle.css" text="Regresar">
+               <font>
+                  <Font name="Century Gothic" size="10.0" />
+               </font>
+               <VBox.margin>
+                  <Insets />
+               </VBox.margin>
+            </Button>
+         </children>
+      </VBox>
+      <Line endX="100.0" layoutX="683.0" layoutY="33.0" startX="-100.0" stroke="#727272" strokeWidth="2.0" />
+   </children>
 </AnchorPane>

@@ -31,4 +31,9 @@ public class ClienteDTO {
     public void setId(String id) {
         this.id = id;
     }
+
+    @Override
+    public String toString() {
+        return  "Cliente : " + nombre + ", Id: " + id;
+    }
 }

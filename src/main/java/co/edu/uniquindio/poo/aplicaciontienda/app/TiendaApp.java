@@ -23,23 +23,24 @@ public class TiendaApp extends Application {
         //pedidos de prueba
         tienda.agregarPedido(new PedidoDTO("001",new ClienteDTO("raul","100"),new DireccionRecord("armenia","630001","15-14")));
         tienda.agregarPedido(new PedidoDTO("002",new ClienteDTO("novia de raul","200"),new DireccionRecord("armenia","630001","15-14")));
-
         openHomeView();
     }
 
 
     public static void openHomeView() {
         try {
-            FXMLLoader loader = new FXMLLoader(TiendaApp.class.getResource("/view/HomeView.fxml"));
+            FXMLLoader loader = new FXMLLoader(TiendaApp.class.getResource("/views/HomeView.fxml"));
+
+
             Parent root = loader.load();
 
             Scene scene = new Scene(root);
 
-            scene.getStylesheets().add(TiendaApp.class.getResource("/styles/tablestyles.css").toExternalForm());
+            var buttonCss = TiendaApp.class.getResource("/styles/buttonstyle.css");
+            var tableCss = TiendaApp.class.getResource("/styles/tablestyle.css");
 
             primaryStage.setTitle("Menú Principal");
             primaryStage.setScene(scene);
-
             primaryStage.show();
         } catch (IOException e) {
             e.printStackTrace();
@@ -48,8 +49,12 @@ public class TiendaApp extends Application {
 
     public static void openGestorClientes() {
         try {
-            FXMLLoader loader = new FXMLLoader(TiendaApp.class.getResource("/view/GestionClientesView.fxml"));
+            FXMLLoader loader = new FXMLLoader(TiendaApp.class.getResource("/views/GestionClientesView.fxml"));
             Parent root = loader.load();
+
+            var buttonCss = TiendaApp.class.getResource("/styles/buttonstyle.css");
+            var tableCss = TiendaApp.class.getResource("/styles/tablestyle.css");
+            var fieldCss = TiendaApp.class.getResource("/styles/textfieldstyle.css");
 
             primaryStage.setTitle("Gestión de Clientes");
             primaryStage.setScene(new Scene(root));
@@ -61,8 +66,12 @@ public class TiendaApp extends Application {
 
     public static void openGestorPedidos() {
         try {
-            FXMLLoader loader = new FXMLLoader(TiendaApp.class.getResource("/view/GestionPedidosView.fxml"));
+            FXMLLoader loader = new FXMLLoader(TiendaApp.class.getResource("/views/GestionPedidosView.fxml"));
             Parent root = loader.load();
+
+            var buttonCss = TiendaApp.class.getResource("/styles/buttonstyle.css");
+            var tableCss = TiendaApp.class.getResource("/styles/tablestyle.css");
+            var fieldCss = TiendaApp.class.getResource("/styles/textfieldstyle.css");
 
             primaryStage.setTitle("Gestión de Pedidos");
             primaryStage.setScene(new Scene(root));
@@ -74,8 +83,12 @@ public class TiendaApp extends Application {
 
     public static void openGestorProductos() {
         try {
-            FXMLLoader loader = new FXMLLoader(TiendaApp.class.getResource("/view/GestionProductosView.fxml"));
+            FXMLLoader loader = new FXMLLoader(TiendaApp.class.getResource("/views/GestionProductosView.fxml"));
             Parent root = loader.load();
+
+            var buttonCss = TiendaApp.class.getResource("/styles/buttonstyle.css");
+            var tableCss = TiendaApp.class.getResource("/styles/tablestyle.css");
+            var fieldCss = TiendaApp.class.getResource("/styles/textfieldstyle.css");
 
             primaryStage.setTitle("Gestión de Productos");
             primaryStage.setScene(new Scene(root));
@@ -87,8 +100,12 @@ public class TiendaApp extends Application {
 
     public static void openPedidosTotales() {
         try {
-            FXMLLoader loader = new FXMLLoader(TiendaApp.class.getResource("/view/PedidosTotalesView.fxml"));
+            FXMLLoader loader = new FXMLLoader(TiendaApp.class.getResource("/views/PedidosTotalesView.fxml"));
             Parent root = loader.load();
+
+            var buttonCss = TiendaApp.class.getResource("/styles/buttonstyle.css");
+            var tableCss = TiendaApp.class.getResource("/styles/tablestyle.css");
+            var fieldCss = TiendaApp.class.getResource("/styles/textfieldstyle.css");
 
             primaryStage.setTitle("Todos los Pedidos");
             primaryStage.setScene(new Scene(root));
@@ -97,6 +114,7 @@ public class TiendaApp extends Application {
             e.printStackTrace();
         }
     }
+
 
     public static void cerrarApp() {
         Platform.exit();

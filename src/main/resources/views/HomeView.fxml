@@ -1,5 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import java.lang.*?>
+<?import javafx.scene.shape.*?>
+<?import javafx.scene.text.*?>
 <?import javafx.geometry.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
@@ -7,64 +10,64 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 <?import java.net.URL?>
-<AnchorPane fx:controller="co.edu.uniquindio.poo.aplicaciontienda.controller.HomeController" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="425.0"
-            prefWidth="600.0" style="-fx-background-color: #121212;" xmlns="http://javafx.com/javafx/8"
-            xmlns:fx="http://javafx.com/fxml/1">
-   <HBox layoutX="5.0" layoutY="62.0" prefHeight="352.0" prefWidth="584.0">
-      <VBox prefHeight="343.0" prefWidth="251.0" spacing="15.0">
-         <HBox.margin>
-            <Insets bottom="10.0" left="10.0" right="10.0" top="50.0"/>
-         </HBox.margin>
-         <Button mnemonicParsing="false" onAction="#onGestionarPedidos" prefHeight="38.0" prefWidth="188.0"
-                 stylesheets="@../styles/buttonstyle.css" text="Gestionar Pedidos">
-            <VBox.margin>
-               <Insets bottom="10.0" left="30.0" right="30.0"/>
-            </VBox.margin>
-         </Button>
-         <Button mnemonicParsing="false" onAction="#onGestionarClientes" prefHeight="38.0" prefWidth="188.0"
-                 stylesheets="@../styles/buttonstyle.css" text="Gestionar Clientes">
-            <VBox.margin>
-               <Insets left="30.0" right="30.0"/>
-            </VBox.margin>
-         </Button>
-         <Button mnemonicParsing="false" onAction="#onGestionarProductos" prefHeight="38.0" prefWidth="188.0"
-                 stylesheets="@../styles/buttonstyle.css" text="Gestionar Productos">
-            <VBox.margin>
-               <Insets bottom="30.0" left="30.0" right="30.0" top="10.0"/>
-            </VBox.margin>
-         </Button>
-         <Button mnemonicParsing="false" onAction="#onSalir" prefHeight="38.0" prefWidth="188.0"
-                 stylesheets="@../styles/buttonstyle.css" text="Salir">
-            <VBox.margin>
-               <Insets bottom="30.0" left="30.0" right="30.0" top="20.0"/>
-            </VBox.margin>
-         </Button>
-      </VBox>
-      <TableView fx:id="tablePedidosActivos" prefHeight="343.0" prefWidth="334.0">
-         <columns>
-            <TableColumn fx:id="colPedidoId" prefWidth="106.0" text="Id"/>
-            <TableColumn fx:id="colClientePedido" prefWidth="119.0" text="Cliente"/>
-            <TableColumn fx:id="colDireccionPedido" prefWidth="111.5" text="Direccion"/>
-         </columns>
-         <stylesheets>
-            <URL value="@../styles/styles.css"/>
-            <URL value="@../styles/tablestyle.css"/>
-         </stylesheets>
-      </TableView>
-   </HBox>
-   <Text fill="#e0e0e0" layoutX="8.0" layoutY="26.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Bienvenido!"
-         wrappingWidth="162.755859375">
-      <font>
-         <Font name="Century Gothic Bold" size="20.0"/>
-      </font>
-   </Text>
-   <Line endX="100.0" fill="BLACK" layoutX="101.0" layoutY="33.0" startX="-100.0" stroke="#727272" strokeWidth="2.0"/>
-   <Line endX="100.0" layoutX="302.0" layoutY="33.0" startX="-100.0" stroke="#727272" strokeWidth="2.0"/>
-   <Line endX="100.0" layoutX="499.0" layoutY="33.0" startX="-100.0" stroke="#727272" strokeWidth="2.0"/>
-   <Text fill="#e0e0e0" layoutX="356.0" layoutY="56.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Pedidos Activos"
-         textAlignment="CENTER" wrappingWidth="162.755859375">
-      <font>
-         <Font name="Century Gothic Bold" size="18.0"/>
-      </font>
-   </Text>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="547.0" prefWidth="783.0" style="-fx-background-color: #121212;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="co.edu.uniquindio.poo.aplicaciontienda.viewController.HomeViewController">
+   <children>
+      <HBox layoutX="5.0" layoutY="45.0" prefHeight="498.0" prefWidth="774.0">
+         <children>
+            <VBox prefHeight="343.0" prefWidth="251.0" spacing="15.0">
+               <HBox.margin>
+                  <Insets bottom="10.0" left="10.0" right="10.0" top="50.0" />
+               </HBox.margin>
+               <children>
+                  <Button mnemonicParsing="false" onAction="#onGestionarPedidos" prefHeight="38.0" prefWidth="188.0" stylesheets="@../styles/buttonstyle.css" text="Gestionar Pedidos">
+                     <VBox.margin>
+                        <Insets bottom="10.0" left="30.0" right="30.0" />
+                     </VBox.margin>
+                  </Button>
+                  <Button mnemonicParsing="false" onAction="#onGestionarClientes" prefHeight="38.0" prefWidth="188.0" stylesheets="@../styles/buttonstyle.css" text="Gestionar Clientes">
+                     <VBox.margin>
+                        <Insets left="30.0" right="30.0" />
+                     </VBox.margin>
+                  </Button>
+                  <Button mnemonicParsing="false" onAction="#onGestionarProductos" prefHeight="38.0" prefWidth="188.0" stylesheets="@../styles/buttonstyle.css" text="Gestionar Productos">
+                     <VBox.margin>
+                        <Insets bottom="30.0" left="30.0" right="30.0" top="10.0" />
+                     </VBox.margin>
+                  </Button>
+                  <Button mnemonicParsing="false" onAction="#onSalir" prefHeight="38.0" prefWidth="188.0" stylesheets="@../styles/buttonstyle.css" text="Salir">
+                     <VBox.margin>
+                        <Insets bottom="30.0" left="30.0" right="30.0" top="40.0" />
+                     </VBox.margin>
+                  </Button>
+               </children>
+            </VBox>
+            <VBox prefHeight="481.0" prefWidth="494.0" spacing="10.0">
+               <children>
+                  <Text fill="#e0e0e0" strokeType="OUTSIDE" strokeWidth="0.0" text="Pedidos Activos" textAlignment="CENTER" wrappingWidth="162.755859375">
+                     <font>
+                        <Font name="Century Gothic Bold" size="20.0" />
+                     </font>
+                  </Text>
+                  <TableView fx:id="tablePedidosActivos" prefHeight="453.0" prefWidth="343.0" stylesheets="@../styles/tablestyle.css">
+                     <columns>
+                        <TableColumn fx:id="colPedidoId" prefWidth="106.0" text="Id" />
+                        <TableColumn fx:id="colClientePedido" prefWidth="175.0" text="Cliente" />
+                        <TableColumn fx:id="colDireccionPedido" prefWidth="206.0" text="Direccion" />
+                     </columns>
+                  </TableView>
+               </children>
+            </VBox>
+         </children>
+      </HBox>
+      <Text fill="#e0e0e0" layoutX="8.0" layoutY="26.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Bienvenido!" wrappingWidth="162.755859375">
+         <font>
+            <Font name="Century Gothic Bold" size="20.0" />
+         </font>
+      </Text>
+      <Line endX="100.0" fill="BLACK" layoutX="101.0" layoutY="33.0" startX="-100.0" stroke="#727272" strokeWidth="2.0" />
+      <Line endX="100.0" layoutX="302.0" layoutY="33.0" startX="-100.0" stroke="#727272" strokeWidth="2.0" />
+      <Line endX="100.0" layoutX="499.0" layoutY="33.0" startX="-100.0" stroke="#727272" strokeWidth="2.0" />
+      <Line endX="100.0" layoutX="683.0" layoutY="33.0" startX="-100.0" stroke="#727272" strokeWidth="2.0" />
+   </children>
 </AnchorPane>

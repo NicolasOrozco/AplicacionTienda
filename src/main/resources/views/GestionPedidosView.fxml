@@ -10,29 +10,29 @@
 <?import javafx.scene.text.*?>
 <?import java.net.URL?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="425.0" prefWidth="600.0" style="-fx-background-color: #121212;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="547.0" prefWidth="783.0" style="-fx-background-color: #121212;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="co.edu.uniquindio.poo.aplicaciontienda.viewController.GestionPedidosViewController">
    <children>
-      <HBox layoutX="5.0" layoutY="62.0" prefHeight="352.0" prefWidth="584.0">
+      <HBox layoutX="5.0" layoutY="62.0" prefHeight="472.0" prefWidth="764.0">
          <children>
-            <VBox prefHeight="349.0" prefWidth="236.0" spacing="10.0">
+            <VBox prefHeight="462.0" prefWidth="313.0" spacing="10.0">
                <HBox.margin>
                   <Insets left="10.0" right="10.0" top="10.0" />
                </HBox.margin>
                <children>
-                  <GridPane>
+                  <GridPane prefHeight="201.0" prefWidth="334.0">
                      <columnConstraints>
-                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="113.66667175292969" minWidth="10.0" prefWidth="99.66666412353516" />
-                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="133.33333587646484" minWidth="10.0" prefWidth="133.33333587646484" />
+                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="136.0" minWidth="10.0" prefWidth="130.0" />
+                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="133.33333587646484" minWidth="10.0" prefWidth="118.0" />
                      </columnConstraints>
                      <rowConstraints>
-                        <RowConstraints maxHeight="30.333335876464844" minHeight="10.0" prefHeight="22.5" vgrow="SOMETIMES" />
-                        <RowConstraints maxHeight="43.333335876464844" minHeight="10.0" prefHeight="26.5" vgrow="SOMETIMES" />
+                        <RowConstraints maxHeight="30.333335876464844" minHeight="10.0" prefHeight="28.0" vgrow="SOMETIMES" />
+                        <RowConstraints maxHeight="44.0" minHeight="10.0" prefHeight="44.0" vgrow="SOMETIMES" />
                         <RowConstraints maxHeight="43.333335876464844" minHeight="1.0" prefHeight="27.666656494140625" vgrow="SOMETIMES" />
                         <RowConstraints maxHeight="48.666664123535156" minHeight="10.0" prefHeight="30.333343505859375" vgrow="SOMETIMES" />
                         <RowConstraints maxHeight="48.666664123535156" minHeight="10.0" prefHeight="30.333343505859375" vgrow="SOMETIMES" />
                      </rowConstraints>
                      <children>
-                        <TextField fx:id="txtfieldIdCliente" prefHeight="0.0" prefWidth="134.0" style="-fx-background-color: #363636FF;" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                        <TextField fx:id="txtfieldIdCliente" prefHeight="0.0" prefWidth="134.0" stylesheets="@../styles/textfieldstyle.css" GridPane.columnIndex="1" GridPane.rowIndex="1" />
                         <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="Id del Cliente:" wrappingWidth="108.78841400146484" GridPane.rowIndex="1">
                            <font>
                               <Font name="Century Gothic Italic" size="13.0" />
@@ -43,14 +43,14 @@
                               <Font name="Century Gothic Italic" size="12.0" />
                            </font>
                         </Text>
-                        <TextField fx:id="txtfieldCalle" prefHeight="0.0" prefWidth="134.0" style="-fx-background-color: #363636FF;" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+                        <TextField fx:id="txtfieldCalle" prefHeight="0.0" prefWidth="134.0" stylesheets="@../styles/textfieldstyle.css" GridPane.columnIndex="1" GridPane.rowIndex="4" />
                         <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="Ciudad:" wrappingWidth="91.455078125" GridPane.rowIndex="2">
                            <font>
                               <Font name="Century Gothic Italic" size="12.0" />
                            </font>
                         </Text>
-                        <TextField fx:id="txtfieldCiudad" prefHeight="0.0" prefWidth="134.0" style="-fx-background-color: #363636FF;" GridPane.columnIndex="1" GridPane.rowIndex="2" />
-                        <TextField fx:id="txtfieldCodigoPostal" prefHeight="0.0" prefWidth="134.0" style="-fx-background-color: #363636FF;" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+                        <TextField fx:id="txtfieldCiudad" prefHeight="0.0" prefWidth="134.0" stylesheets="@../styles/textfieldstyle.css" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                        <TextField fx:id="txtfieldCodigoPostal" prefHeight="0.0" prefWidth="134.0" stylesheets="@../styles/textfieldstyle.css" GridPane.columnIndex="1" GridPane.rowIndex="3" />
                         <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="Calle:" wrappingWidth="91.455078125" GridPane.rowIndex="4">
                            <font>
                               <Font name="Century Gothic Italic" size="12.0" />
@@ -61,17 +61,17 @@
                               <Font name="Century Gothic Italic" size="13.0" />
                            </font>
                         </Text>
-                        <TextField fx:id="txtfieldPedido" prefHeight="0.0" prefWidth="134.0" style="-fx-background-color: #363636FF;" GridPane.columnIndex="1" />
+                        <TextField fx:id="txtfieldPedido" prefHeight="14.0" prefWidth="134.0" stylesheets="@../styles/textfieldstyle.css" GridPane.columnIndex="1" />
                      </children>
                   </GridPane>
                   <Button mnemonicParsing="false" onAction="#onAgregarProductoAPedido" prefHeight="0.0" prefWidth="176.0" stylesheets="@../styles/buttonstyle.css" text="Agregar Producto">
                      <VBox.margin>
-                        <Insets left="30.0" right="30.0" />
+                        <Insets left="80.0" right="30.0" top="10.0" />
                      </VBox.margin>
                   </Button>
                   <Button mnemonicParsing="false" onAction="#onCrearPedido" prefHeight="11.0" prefWidth="176.0" stylesheets="@../styles/buttonstyle.css" text="Crear Pedido">
                      <VBox.margin>
-                        <Insets bottom="10.0" left="30.0" right="30.0" />
+                        <Insets bottom="10.0" left="80.0" right="30.0" />
                      </VBox.margin>
                      <padding>
                         <Insets bottom="10.0" />
@@ -79,31 +79,39 @@
                   </Button>
                   <Line endX="100.0" fill="BLACK" startX="-100.0" stroke="#727272" strokeWidth="2.0">
                      <VBox.margin>
-                        <Insets left="15.0" />
+                        <Insets left="65.0" />
                      </VBox.margin>
                   </Line>
-                  <Button mnemonicParsing="false" onAction="#onVerTodosLosPedidos" prefHeight="12.0" prefWidth="176.0" stylesheets="@../styles/buttonstyle.css" text="Ver todos los pedidos">
+                  <Button mnemonicParsing="false" onAction="#onVerTodosLosPedidos" prefHeight="38.0" prefWidth="177.0" stylesheets="@../styles/buttonstyle.css" text="Ver todos los pedidos">
                      <VBox.margin>
-                        <Insets left="30.0" right="30.0" top="10.0" />
+                        <Insets left="80.0" right="30.0" top="10.0" />
                      </VBox.margin>
                   </Button>
                   <Button mnemonicParsing="false" onAction="#onRegresar" prefHeight="7.0" prefWidth="176.0" stylesheets="@../styles/buttonstyle.css" text="Regresar">
                      <VBox.margin>
-                        <Insets left="30.0" right="30.0" />
+                        <Insets left="80.0" right="30.0" />
                      </VBox.margin>
                   </Button>
                </children>
             </VBox>
-            <TableView fx:id="tableProductos" prefHeight="352.0" prefWidth="324.0">
-               <columns>
-                  <TableColumn fx:id="colNombreProducto" prefWidth="159.0" text="Nombre" />
-                  <TableColumn fx:id="colPrecioProducto" prefWidth="163.0" text="Precio" />
-               </columns>
-               <stylesheets>
-                  <URL value="@../styles/styles.css" />
-                  <URL value="@../styles/tablestyle.css" />
-               </stylesheets>
-            </TableView>
+            <VBox prefHeight="472.0" prefWidth="430.0" spacing="10.0">
+               <children>
+                  <Text fill="#e0e0e0" strokeType="OUTSIDE" strokeWidth="0.0" text="Productos " textAlignment="CENTER" wrappingWidth="111.755859375">
+                     <font>
+                        <Font name="Century Gothic Bold" size="20.0" />
+                     </font>
+                  </Text>
+                  <TableView fx:id="tableProductos" prefHeight="472.0" prefWidth="546.0">
+                     <columns>
+                        <TableColumn fx:id="colNombreProducto" prefWidth="221.0" text="Nombre" />
+                        <TableColumn fx:id="colPrecioProducto" prefWidth="206.0" text="Precio" />
+                     </columns>
+                     <stylesheets>
+                        <URL value="@../styles/tablestyle.css" />
+                     </stylesheets>
+                  </TableView>
+               </children>
+            </VBox>
          </children>
       </HBox>
       <Text fill="#e0e0e0" layoutX="8.0" layoutY="23.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Gestion de pedidos" wrappingWidth="266.755859375">
@@ -114,15 +122,11 @@
       <Line endX="100.0" fill="BLACK" layoutX="101.0" layoutY="33.0" startX="-100.0" stroke="#727272" strokeWidth="2.0" />
       <Line endX="100.0" layoutX="302.0" layoutY="33.0" startX="-100.0" stroke="#727272" strokeWidth="2.0" />
       <Line endX="100.0" layoutX="499.0" layoutY="33.0" startX="-100.0" stroke="#727272" strokeWidth="2.0" />
-      <Text fill="#e0e0e0" layoutX="356.0" layoutY="55.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Productos " textAlignment="CENTER" wrappingWidth="162.755859375">
-         <font>
-            <Font name="Century Gothic Bold" size="18.0" />
-         </font>
-      </Text>
       <Text fill="WHITE" layoutX="12.0" layoutY="60.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Crear Pedido:" wrappingWidth="195.455078125">
          <font>
             <Font name="Century Gothic Bold" size="15.0" />
          </font>
       </Text>
+      <Line endX="100.0" layoutX="683.0" layoutY="33.0" startX="-100.0" stroke="#727272" strokeWidth="2.0" />
    </children>
 </AnchorPane>

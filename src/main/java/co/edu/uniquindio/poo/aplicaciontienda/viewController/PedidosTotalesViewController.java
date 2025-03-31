@@ -1,11 +1,14 @@
 package co.edu.uniquindio.poo.aplicaciontienda.viewController;
 import java.net.URL;
+import java.util.Collection;
 import java.util.ResourceBundle;
 
 import co.edu.uniquindio.poo.aplicaciontienda.app.TiendaApp;
 import co.edu.uniquindio.poo.aplicaciontienda.controller.PedidosTotalesController;
+import co.edu.uniquindio.poo.aplicaciontienda.model.DireccionRecord;
 import co.edu.uniquindio.poo.aplicaciontienda.model.Estado;
 import co.edu.uniquindio.poo.aplicaciontienda.model.PedidoDTO;
+import javafx.beans.property.SimpleStringProperty;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
@@ -18,6 +21,7 @@ import javafx.scene.control.TextField;
 public class PedidosTotalesViewController {
     PedidosTotalesController pedidosTotalesController;
     TiendaApp tiendaApp;
+    PedidoDTO selectedPedido;
     private final ObservableList<PedidoDTO> pedidosTotales = FXCollections.observableArrayList();
     @FXML
     private ResourceBundle resources;
@@ -62,7 +66,7 @@ public class PedidosTotalesViewController {
 
     @FXML
     void onBuscarPedido() {
-        //PedidoDTO pedidoDTO = pedidosTotalesController.buscarPedido(txtfieldIdpedido.getText());
+        pedidosTotalesController.buscarPedido(txtfieldIdpedido.getText());
 
     }
 
@@ -74,7 +78,7 @@ public class PedidosTotalesViewController {
 
     @FXML
     void onEditarPedido() {
-
+        pedidosTotalesController.editarPedido(txtfieldIdpedido.getText(), new PedidoDTO(txtfieldIdpedido.getText(), tiendaApp.tienda.buscarCliente(txtfieldIdCliente.getText()), new DireccionRecord(txtfieldCiudad.getText(), txtfieldCodigoPostal.getText(), txtfieldCalle.getText())));
     }
 
     @FXML
@@ -84,7 +88,34 @@ public class PedidosTotalesViewController {
 
     @FXML
     void initialize() {
+        pedidosTotalesController = new PedidosTotalesController(tiendaApp.tienda);
+        initView();
+    }
 
+    public void initView(){
+        initDataBinding();
+        cargarPedidos();
+        listenerSelection();
+    }
 
+    public  void initDataBinding(){
+        colClientePedido.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue().getCliente().toString()));
+        colDireccionPedido.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue().getDireccion().toString()));
+        colEstadoPedido.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue().getEstado().toString()));
+        colIdPedido.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue().getId()));
+    }
+    public void cargarPedidos(){
+        Collection<PedidoDTO> pedidos = tiendaApp.tienda.getPedidos();
+        pedidosTotales.setAll(pedidos);
+    }
+    public void  listenerSelection(){
+        tableTotalPedidos.getSelectionModel().selectedItemProperty().addListener((observable, oldValue, newValue) -> {
+            selectedPedido = (PedidoDTO)  newValue;
+            txtfieldIdCliente.setText(selectedPedido.getCliente().getId());
+            txtfieldIdpedido.setText(selectedPedido.getId());
+            txtfieldCalle.setText(selectedPedido.getDireccion().calle());
+            txtfieldCiudad.setText(selectedPedido.getDireccion().ciudad());
+            txtfieldCodigoPostal.setText(selectedPedido.getDireccion().codigoPostal());
+        });
     }
 }

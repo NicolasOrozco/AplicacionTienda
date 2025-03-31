@@ -6,6 +6,7 @@ import java.util.ResourceBundle;
 import co.edu.uniquindio.poo.aplicaciontienda.app.TiendaApp;
 import co.edu.uniquindio.poo.aplicaciontienda.model.PedidoDTO;
 import co.edu.uniquindio.poo.aplicaciontienda.model.Tienda;
+import javafx.beans.property.SimpleStringProperty;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -61,7 +62,7 @@ public class HomeViewController{
     @FXML
     public void initialize() {
         colPedidoId.setCellValueFactory(new PropertyValueFactory<>("id"));
-        colClientePedido.setCellValueFactory(new PropertyValueFactory<>("cliente"));
+        colClientePedido.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue().getCliente().getNombre()));
         colDireccionPedido.setCellValueFactory(new PropertyValueFactory<>("direccion"));
         cargarPedidos();
     }
