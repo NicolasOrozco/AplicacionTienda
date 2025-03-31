@@ -12,5 +12,4 @@ module co.edu.uniquindio.poo.aplicaciontienda {
     exports co.edu.uniquindio.poo.aplicaciontienda.app;
     exports co.edu.uniquindio.poo.aplicaciontienda.viewController;
     exports co.edu.uniquindio.poo.aplicaciontienda.controller;
-
 }

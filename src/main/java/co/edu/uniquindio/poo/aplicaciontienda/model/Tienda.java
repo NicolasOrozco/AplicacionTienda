@@ -154,6 +154,18 @@ public class Tienda {
         }
     }
 
+    public void editarPedido(String id, PedidoDTO nuevoPedido){
+        pedidos.replaceAll(p -> p.getId().equals(id) ? nuevoPedido : p);
+    }
+
+    //-------------CRUD PRODUCTO-------------//
+    public void agregarProducto(ProductoRecord producto) {
+        productos.add(producto);
+    }
+    public void eliminarProducto(String name){
+        productos.removeIf(productoRecord -> productoRecord.nombre().equals(name));
+    }
+    
     //-------------OTROS MÉTODOS-------------//
 
     public LinkedList<PedidoDTO> obtenerPedidosActivos() {

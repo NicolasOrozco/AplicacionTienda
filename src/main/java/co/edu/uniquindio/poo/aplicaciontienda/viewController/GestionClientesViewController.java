@@ -1,5 +1,5 @@
 package co.edu.uniquindio.poo.aplicaciontienda.viewController;
-
+//VIEW CONTROLLER Y CONTROLLER HECHOS
 import co.edu.uniquindio.poo.aplicaciontienda.app.TiendaApp;
 import co.edu.uniquindio.poo.aplicaciontienda.controller.GestionClientesController;
 import co.edu.uniquindio.poo.aplicaciontienda.model.ClienteDTO;
@@ -8,7 +8,6 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.scene.control.Button;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
@@ -16,10 +15,9 @@ import javafx.scene.control.TextField;
 import java.util.Collection;
 
 public class GestionClientesViewController {
+
     private  final ObservableList<ClienteDTO> listaCLientes = FXCollections.observableArrayList();
     private  ClienteDTO selectedCliente;
-
-    public TiendaApp tiendaApp;
     public GestionClientesController gestionClientesController;
 
     @FXML
@@ -27,15 +25,6 @@ public class GestionClientesViewController {
 
     @FXML
     private TableView<ClienteDTO> tableClientes;
-
-    @FXML
-    private Button btnEditarCliente;
-
-    @FXML
-    private Button btnRegresar;
-
-    @FXML
-    private Button btnEliminarCliente;
 
     @FXML
     private TextField txtfieldNombreCliente;
@@ -47,50 +36,56 @@ public class GestionClientesViewController {
     private TextField txtfieldIdCliente;
 
     @FXML
-    private Button btnCrearCliente;
-
-
-    @FXML
-    void onEliminarCliente(ActionEvent event) {
-        gestionClientesController.eliminarCliente(txtfieldIdCliente.getText());
+    void onEliminarCliente() {
+        if (selectedCliente != null){
+            gestionClientesController.eliminarCliente(selectedCliente.getId());
+            cargarClientes();
+        }
     }
 
     @FXML
-    void onRegresar(ActionEvent event) {
-
-
+    void onRegresar() {
+        TiendaApp.openHomeView();
     }
 
     @FXML
-    void onEditarCliente(ActionEvent event) {
-        gestionClientesController.actualizar(txtfieldIdCliente.getText(), new ClienteDTO(txtfieldNombreCliente.getText(), selectedCliente.getId()));
+    void onEditarCliente() {
+        if (selectedCliente != null) {
+            gestionClientesController.actualizarCliente(selectedCliente.getId(), new ClienteDTO(txtfieldNombreCliente.getText(),txtfieldIdCliente.getText()));
+            cargarClientes();
+        }
     }
 
     @FXML
-    void onCrearCliente(ActionEvent event) {
+    void onCrearCliente() {
         gestionClientesController.agregarCliente(new ClienteDTO(txtfieldNombreCliente.getText(), selectedCliente.getId()));
+        cargarClientes();
     }
     void initialize() {
-        gestionClientesController = new GestionClientesController(tiendaApp.tienda);
+        gestionClientesController = new GestionClientesController(TiendaApp.tienda);
+        configurarTabla();
+        cargarClientes();
+        listenerSelection();
         initView();
     }
     private void initView() {
-        initDataBinding();
+        configurarTabla();
         cargarClientes();
         listenerSelection();
     }
-    private void initDataBinding() {
+    private void configurarTabla() {
         colIdCliente.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue().getId()));
         colNombreCliente.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue().getNombre()));
+        tableClientes.setItems(listaCLientes);
     }
     private void cargarClientes() {
-        Collection<ClienteDTO> clientes = tiendaApp.tienda.getClientes();
+        Collection<ClienteDTO> clientes = TiendaApp.tienda.getClientes();
         listaCLientes.setAll(clientes);
     }
     private void listenerSelection(){
         tableClientes.getSelectionModel().selectedItemProperty().addListener((obs, oldSelection, newSelection) -> {
             if(newSelection != null){
-                selectedCliente = (ClienteDTO) newSelection;
+                selectedCliente = newSelection;
                 txtfieldNombreCliente.setText(selectedCliente.getNombre());
                 txtfieldIdCliente.setText(String.valueOf(selectedCliente.getId()));
             }
@@ -98,6 +93,4 @@ public class GestionClientesViewController {
     }
 
 
-
 }
-

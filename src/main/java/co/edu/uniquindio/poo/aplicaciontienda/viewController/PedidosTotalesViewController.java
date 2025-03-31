@@ -1,34 +1,44 @@
 package co.edu.uniquindio.poo.aplicaciontienda.viewController;
+import java.net.URL;
+import java.util.ResourceBundle;
 
 import co.edu.uniquindio.poo.aplicaciontienda.app.TiendaApp;
-import co.edu.uniquindio.poo.aplicaciontienda.controller.HistorialPedidosController;
+import co.edu.uniquindio.poo.aplicaciontienda.controller.PedidosTotalesController;
+import co.edu.uniquindio.poo.aplicaciontienda.model.Estado;
 import co.edu.uniquindio.poo.aplicaciontienda.model.PedidoDTO;
-import co.edu.uniquindio.poo.aplicaciontienda.model.ProductoRecord;
-import javafx.beans.property.SimpleStringProperty;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
-import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.Initializable;
+import javafx.scene.control.ComboBox;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 
-import java.util.Collection;
-
 public class PedidosTotalesViewController {
-    private final ObservableList<ProductoRecord> productos = FXCollections.observableArrayList();
-    private PedidoDTO SelectedPedido;
+    PedidosTotalesController pedidosTotalesController;
+    TiendaApp tiendaApp;
+    private final ObservableList<PedidoDTO> pedidosTotales = FXCollections.observableArrayList();
+    @FXML
+    private ResourceBundle resources;
 
-    public TiendaApp tiendaApp;
-    HistorialPedidosController historialPedidosController;
+    @FXML
+    private URL location;
+
+    @FXML
+    private TableColumn<PedidoDTO, String> colDireccionPedido;
+
+    @FXML
+    private TableColumn<PedidoDTO, String> colEstadoPedido;
+
     @FXML
     private TextField txtfieldCodigoPostal;
 
     @FXML
-    private TableColumn<ProductoRecord, String> colNombreProducto;
+    private TableColumn<PedidoDTO, String> colClientePedido;
 
     @FXML
-    private TableColumn<ProductoRecord, String> colPrecioProducto;
+    private ComboBox<Estado> comboEstado;
 
     @FXML
     private TextField txtfieldCalle;
@@ -40,48 +50,41 @@ public class PedidosTotalesViewController {
     private TextField txtfieldCiudad;
 
     @FXML
-    private TableView<ProductoRecord> tableProductos;
+    private TextField txtfieldIdpedido;
 
     @FXML
-    void onAgregarProductoAPedido(ActionEvent event) {
+    private TableView<PedidoDTO> tableTotalPedidos;
+
+    @FXML
+    private TableColumn<PedidoDTO, String> colIdPedido;
+
+
+
+    @FXML
+    void onBuscarPedido() {
+        //PedidoDTO pedidoDTO = pedidosTotalesController.buscarPedido(txtfieldIdpedido.getText());
 
     }
 
     @FXML
-    void onCrearPedido(ActionEvent event) {
+    void onEliminarPedido() {
+        pedidosTotalesController.eliminarPedido(txtfieldIdpedido.getText());
+    }
+
+
+    @FXML
+    void onEditarPedido() {
 
     }
 
     @FXML
-    void onVerTodosLosPedidos(ActionEvent event) {
+    void onRegresar() {
 
     }
 
     @FXML
-    void onRegresar(ActionEvent event) {
-
-    }
     void initialize() {
-        historialPedidosController = new HistorialPedidosController(tiendaApp.tienda);
-        iniView();
-    }
-    private void iniView() {
-        initDataBinding();
-        cargarProductos();
-        listenerSelection();
-    }
-    public void initDataBinding() {
-        colNombreProducto.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue().getNombre()));
-        colPrecioProducto.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue().getPrecio()));
-    }
-    public void cargarProductos() {
-        Collection<ProductoRecord> productosR =tiendaApp.tienda.getProductos();
-        productos.setAll(productosR);
-    }
 
 
-
-
+    }
 }
-
-

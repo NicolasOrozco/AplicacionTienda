@@ -5,7 +5,7 @@ import java.util.LinkedList;
 public class PedidoDTO {
     private final String id;
     private ClienteDTO cliente;
-    private final LinkedList<ProductoRecord> productos;
+    private LinkedList<ProductoRecord> productos;
     private DireccionRecord direccion;
     private Estado estado;
 
@@ -28,6 +28,10 @@ public class PedidoDTO {
     public DireccionRecord getDireccion() { return direccion; }
 
     public Estado getEstado() { return estado; }
+
+    public void setProductos(LinkedList<ProductoRecord> productos) {
+        this.productos = productos;
+    }
 
     public void setEstado(Estado estado) { this.estado = estado; }
 

@@ -7,13 +7,13 @@ public class GestionClientesController {
 
     public GestionClientesController(Tienda tienda) {this.tienda = tienda;}
 
-    public ClienteDTO buscarCliente(String nombre){
-        return tienda.buscarCliente(nombre);
+    public ClienteDTO buscarCliente(String id){
+        return tienda.buscarCliente(id);
     }
     public void agregarCliente(ClienteDTO cliente){
         tienda.agregarCliente(cliente);
     }
-    public void actualizar(String id,ClienteDTO cliente){
+    public void actualizarCliente(String id,ClienteDTO cliente){
         tienda.actualizarCliente(id, cliente);
     }
     public void eliminarCliente(String id){
