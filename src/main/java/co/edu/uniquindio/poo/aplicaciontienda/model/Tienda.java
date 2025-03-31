@@ -182,7 +182,11 @@ public class Tienda {
     
     //-------------OTROS MÉTODOS-------------//
 
-     
+
+    /**
+     * Metodo que recore la lista de pedidos en busca de un pedido activo
+     * @return lista de pedidos activos
+     */
     public LinkedList<PedidoDTO> obtenerPedidosActivos() {
         LinkedList<PedidoDTO> pedidosActivos = new LinkedList<>();
 

@@ -1,9 +1,6 @@
 package co.edu.uniquindio.poo.aplicaciontienda.app;
 
-import co.edu.uniquindio.poo.aplicaciontienda.model.ClienteDTO;
-import co.edu.uniquindio.poo.aplicaciontienda.model.DireccionRecord;
-import co.edu.uniquindio.poo.aplicaciontienda.model.PedidoDTO;
-import co.edu.uniquindio.poo.aplicaciontienda.model.Tienda;
+import co.edu.uniquindio.poo.aplicaciontienda.model.*;
 import javafx.application.Application;
 import javafx.application.Platform;
 import javafx.fxml.FXMLLoader;
@@ -22,9 +19,17 @@ public class TiendaApp extends Application {
         primaryStage = stage;
         //pedidos de prueba
         ClienteDTO cliente = new ClienteDTO("raul","100");
-        ClienteDTO cliente2 = new ClienteDTO("novia de raul","200");
+        ClienteDTO cliente2 = new ClienteDTO("julian","200");
+        tienda.agregarCliente(cliente);
+        tienda.agregarCliente(cliente2);
         tienda.agregarPedido(new PedidoDTO("001",cliente,new DireccionRecord("armenia","630001","15-14")));
         tienda.agregarPedido(new PedidoDTO("002",cliente2,new DireccionRecord("armenia","630001","15-14")));
+        ProductoRecord productoRecord = new ProductoRecord("arroz",2000);
+        ProductoRecord productoRecord2 = new ProductoRecord("aceite",15000);
+        ProductoRecord productoRecord3 = new ProductoRecord("leche",5000);
+        tienda.agregarProducto(productoRecord);
+        tienda.agregarProducto(productoRecord2);
+        tienda.agregarProducto(productoRecord3);
         openHomeView();
     }
 

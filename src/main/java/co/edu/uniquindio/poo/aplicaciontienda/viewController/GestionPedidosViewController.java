@@ -18,7 +18,7 @@ import java.util.Collection;
 import java.util.LinkedList;
 
 public class GestionPedidosViewController {
-
+    TiendaApp tiendaApp;
     GestionPedidosController gestionPedidosController;
     private final ObservableList<ProductoRecord> productos = FXCollections.observableArrayList();
     public ProductoRecord selectedProducto;
@@ -107,6 +107,8 @@ public class GestionPedidosViewController {
             }
         });
     }
-
+    public void setApp(TiendaApp tiendaApp){
+        this.tiendaApp = tiendaApp;
+    }
 }
 

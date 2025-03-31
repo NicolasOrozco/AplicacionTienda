@@ -16,7 +16,7 @@ import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
 
 public class HomeViewController{
-
+    TiendaApp tiendaApp;
     private Tienda tienda = TiendaApp.tienda;
 
     @FXML
@@ -73,5 +73,8 @@ public class HomeViewController{
             ObservableList<PedidoDTO> pedidos = FXCollections.observableArrayList(tienda.getPedidos());
             tablePedidosActivos.setItems(pedidos);
         }
+    }
+    public void setApp(TiendaApp tiendaApp){
+        this.tiendaApp = tiendaApp;
     }
 }

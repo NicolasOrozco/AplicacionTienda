@@ -115,4 +115,7 @@ public class GestionProductosViewController {
         alerta.setContentText(mensaje);
         alerta.showAndWait();
     }
+    public void setApp(TiendaApp tiendaApp){
+        this.tiendaApp = tiendaApp;
+    }
 }

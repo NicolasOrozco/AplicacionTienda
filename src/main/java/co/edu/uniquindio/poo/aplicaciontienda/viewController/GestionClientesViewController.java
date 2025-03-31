@@ -3,6 +3,7 @@ package co.edu.uniquindio.poo.aplicaciontienda.viewController;
 import co.edu.uniquindio.poo.aplicaciontienda.app.TiendaApp;
 import co.edu.uniquindio.poo.aplicaciontienda.controller.GestionClientesController;
 import co.edu.uniquindio.poo.aplicaciontienda.model.ClienteDTO;
+import co.edu.uniquindio.poo.aplicaciontienda.model.Tienda;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -16,7 +17,7 @@ import javafx.scene.control.Alert.AlertType;
 import java.util.Collection;
 
 public class GestionClientesViewController {
-
+    TiendaApp tiendaApp;
     private final ObservableList<ClienteDTO> listaClientes = FXCollections.observableArrayList();
     private ClienteDTO selectedCliente;
     private GestionClientesController gestionClientesController;
@@ -124,5 +125,8 @@ public class GestionClientesViewController {
         alert.setHeaderText(null);
         alert.setContentText(mensaje);
         alert.showAndWait();
+    }
+    public void setApp(TiendaApp tiendaApp){
+        this.tiendaApp = tiendaApp;
     }
 }
