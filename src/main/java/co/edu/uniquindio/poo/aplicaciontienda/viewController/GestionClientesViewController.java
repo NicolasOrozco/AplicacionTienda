@@ -1,24 +1,25 @@
 package co.edu.uniquindio.poo.aplicaciontienda.viewController;
-//VIEW CONTROLLER Y CONTROLLER HECHOS
+
 import co.edu.uniquindio.poo.aplicaciontienda.app.TiendaApp;
 import co.edu.uniquindio.poo.aplicaciontienda.controller.GestionClientesController;
 import co.edu.uniquindio.poo.aplicaciontienda.model.ClienteDTO;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
-import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
+import javafx.scene.control.Alert;
+import javafx.scene.control.Alert.AlertType;
 
 import java.util.Collection;
 
 public class GestionClientesViewController {
 
-    private  final ObservableList<ClienteDTO> listaCLientes = FXCollections.observableArrayList();
-    private  ClienteDTO selectedCliente;
-    public GestionClientesController gestionClientesController;
+    private final ObservableList<ClienteDTO> listaClientes = FXCollections.observableArrayList();
+    private ClienteDTO selectedCliente;
+    private GestionClientesController gestionClientesController;
 
     @FXML
     private TableColumn<ClienteDTO, String> colNombreCliente;
@@ -37,9 +38,12 @@ public class GestionClientesViewController {
 
     @FXML
     void onEliminarCliente() {
-        if (selectedCliente != null){
+        if (selectedCliente != null) {
             gestionClientesController.eliminarCliente(selectedCliente.getId());
+            limpiarCampos();
             cargarClientes();
+        } else {
+            mostrarAlerta("Error", "Debe seleccionar un cliente para eliminar");
         }
     }
 
@@ -51,46 +55,74 @@ public class GestionClientesViewController {
     @FXML
     void onEditarCliente() {
         if (selectedCliente != null) {
-            gestionClientesController.actualizarCliente(selectedCliente.getId(), new ClienteDTO(txtfieldNombreCliente.getText(),txtfieldIdCliente.getText()));
+            gestionClientesController.actualizarCliente(
+                    selectedCliente.getId(),
+                    new ClienteDTO(txtfieldNombreCliente.getText(), txtfieldIdCliente.getText())
+            );
+            limpiarCampos();
             cargarClientes();
+        } else {
+            mostrarAlerta("Error", "Debe seleccionar un cliente para editar");
         }
     }
 
     @FXML
     void onCrearCliente() {
-        gestionClientesController.agregarCliente(new ClienteDTO(txtfieldNombreCliente.getText(), selectedCliente.getId()));
+        String nombre = txtfieldNombreCliente.getText();
+        String id = txtfieldIdCliente.getText();
+
+        if (nombre.isEmpty() || id.isEmpty()) {
+            mostrarAlerta("Error", "Debe completar todos los campos");
+            return;
+        }
+
+        gestionClientesController.agregarCliente(new ClienteDTO(nombre, id));
+        limpiarCampos();
         cargarClientes();
     }
+
+    @FXML
     void initialize() {
         gestionClientesController = new GestionClientesController(TiendaApp.tienda);
         configurarTabla();
         cargarClientes();
         listenerSelection();
-        initView();
     }
-    private void initView() {
-        configurarTabla();
-        cargarClientes();
-        listenerSelection();
-    }
+
     private void configurarTabla() {
         colIdCliente.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue().getId()));
         colNombreCliente.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue().getNombre()));
-        tableClientes.setItems(listaCLientes);
+        tableClientes.setItems(listaClientes);
     }
+
     private void cargarClientes() {
         Collection<ClienteDTO> clientes = TiendaApp.tienda.getClientes();
-        listaCLientes.setAll(clientes);
+        listaClientes.setAll(clientes);
     }
-    private void listenerSelection(){
+
+    private void listenerSelection() {
         tableClientes.getSelectionModel().selectedItemProperty().addListener((obs, oldSelection, newSelection) -> {
-            if(newSelection != null){
-                selectedCliente = newSelection;
+            selectedCliente = newSelection;
+            if (newSelection != null) {
                 txtfieldNombreCliente.setText(selectedCliente.getNombre());
-                txtfieldIdCliente.setText(String.valueOf(selectedCliente.getId()));
+                txtfieldIdCliente.setText(selectedCliente.getId());
+            } else {
+                limpiarCampos();
             }
         });
     }
 
+    private void limpiarCampos() {
+        txtfieldNombreCliente.clear();
+        txtfieldIdCliente.clear();
+        selectedCliente = null;
+    }
 
+    private void mostrarAlerta(String titulo, String mensaje) {
+        Alert alert = new Alert(AlertType.ERROR);
+        alert.setTitle(titulo);
+        alert.setHeaderText(null);
+        alert.setContentText(mensaje);
+        alert.showAndWait();
+    }
 }

@@ -2,26 +2,21 @@ package co.edu.uniquindio.poo.aplicaciontienda.viewController;
 
 import co.edu.uniquindio.poo.aplicaciontienda.app.TiendaApp;
 import co.edu.uniquindio.poo.aplicaciontienda.controller.GestionProductosController;
-import co.edu.uniquindio.poo.aplicaciontienda.controller.HistorialPedidosController;
-import co.edu.uniquindio.poo.aplicaciontienda.model.ClienteDTO;
 import co.edu.uniquindio.poo.aplicaciontienda.model.ProductoRecord;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.scene.control.Button;
-import javafx.scene.control.TableColumn;
-import javafx.scene.control.TableView;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 
 import java.util.LinkedList;
 
-public class GestionProductosViewController{
+public class GestionProductosViewController {
 
-    private  final ObservableList<ProductoRecord> listaProductos = FXCollections.observableArrayList();
+    private final ObservableList<ProductoRecord> listaProductos = FXCollections.observableArrayList();
 
-    public TiendaApp tiendaApp;
-    public GestionProductosController gestionProductosController;
+    private TiendaApp tiendaApp;
+    private GestionProductosController gestionProductosController;
     private ProductoRecord selectedProducto;
 
     @FXML
@@ -40,39 +35,66 @@ public class GestionProductosViewController{
     private TableView<ProductoRecord> tableProductos;
 
     @FXML
-    void onEliminarProducto(){
-        ProductoRecord productoSeleccionado = selectedProducto;
-        if(productoSeleccionado != null){
-            gestionProductosController.eliminarProducto(productoSeleccionado.nombre());
-            cargarProductos();
-        }
+    private Button btnEliminarProducto;
+
+    @FXML
+    private Button btnCrearProducto;
+
+    public void setTiendaApp(TiendaApp tiendaApp) {
+        this.tiendaApp = tiendaApp;
+        this.gestionProductosController = new GestionProductosController(tiendaApp.tienda);
+        cargarProductos();
+    }
+
+    @FXML
+    public void initialize() {
+        listenerSelection();
     }
 
     @FXML
     void onCrearProducto(ActionEvent event) {
-        ProductoRecord productoRecord = new ProductoRecord(txtfieldNombreProducto.getText(), Double.parseDouble(txtfieldPrecioProducto.getText()));
-        gestionProductosController.agregarProducto(productoRecord);
-        cargarProductos();
-    }
+        if (txtfieldNombreProducto.getText().isEmpty() || txtfieldPrecioProducto.getText().isEmpty()) {
+            mostrarAlerta("Error", "Debe llenar todos los campos.");
+            return;
+        }
 
-
-    public void cargarProductos(){
-        LinkedList<ProductoRecord> productos = gestionProductosController.obtenerProductos();
-        listaProductos.setAll(productos);
+        try {
+            double precio = Double.parseDouble(txtfieldPrecioProducto.getText());
+            ProductoRecord productoRecord = new ProductoRecord(txtfieldNombreProducto.getText(), precio);
+            gestionProductosController.agregarProducto(productoRecord);
+            cargarProductos();
+            limpiarCampos();
+        } catch (NumberFormatException e) {
+            mostrarAlerta("Error", "El precio debe ser un número válido.");
+        }
     }
 
     @FXML
-    void onRegresar(ActionEvent event) {
-        TiendaApp.openHomeView();
+    void onEliminarProducto() {
+        if (selectedProducto == null) {
+            mostrarAlerta("Error", "Debe seleccionar un producto.");
+            return;
+        }
+
+        gestionProductosController.eliminarProducto(selectedProducto.nombre());
+        cargarProductos();
+        limpiarCampos();
     }
 
-    public ProductoRecord buildProducto(){
-        return new ProductoRecord(txtfieldNombreProducto.getText(), Double.parseDouble(txtfieldPrecioProducto.getText()));
+    @FXML
+    void onRegresar(){
+
+    TiendaApp.openHomeView();}
+
+    public void cargarProductos() {
+        LinkedList<ProductoRecord> productos = gestionProductosController.obtenerProductos();
+        listaProductos.setAll(productos);
+        tableProductos.setItems(listaProductos);
     }
 
-    private void listenerSelection(){
+    private void listenerSelection() {
         tableProductos.getSelectionModel().selectedItemProperty().addListener((obs, oldSelection, newSelection) -> {
-            if( newSelection != null){
+            if (newSelection != null) {
                 selectedProducto = newSelection;
                 txtfieldNombreProducto.setText(newSelection.nombre());
                 txtfieldPrecioProducto.setText(Double.toString(newSelection.precio()));
@@ -80,4 +102,17 @@ public class GestionProductosViewController{
         });
     }
 
+    private void limpiarCampos() {
+        txtfieldNombreProducto.clear();
+        txtfieldPrecioProducto.clear();
+        selectedProducto = null;
+    }
+
+    private void mostrarAlerta(String titulo, String mensaje) {
+        Alert alerta = new Alert(Alert.AlertType.ERROR);
+        alerta.setTitle(titulo);
+        alerta.setHeaderText(null);
+        alerta.setContentText(mensaje);
+        alerta.showAndWait();
+    }
 }

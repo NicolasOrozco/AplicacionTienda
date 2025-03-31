@@ -9,6 +9,12 @@ public class PedidoDTO {
     private DireccionRecord direccion;
     private Estado estado;
 
+    /**
+     * Constructor Pedido
+     * @param id
+     * @param cliente
+     * @param direccion
+     */
     public PedidoDTO(String id, ClienteDTO cliente, DireccionRecord direccion) {
         this.id = id;
         this.cliente = cliente;

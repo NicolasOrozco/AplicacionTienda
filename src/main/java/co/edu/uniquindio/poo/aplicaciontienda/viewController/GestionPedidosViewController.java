@@ -2,7 +2,7 @@ package co.edu.uniquindio.poo.aplicaciontienda.viewController;
 
 import co.edu.uniquindio.poo.aplicaciontienda.app.TiendaApp;
 import co.edu.uniquindio.poo.aplicaciontienda.controller.GestionPedidosController;
-import co.edu.uniquindio.poo.aplicaciontienda.controller.HistorialPedidosController;
+import co.edu.uniquindio.poo.aplicaciontienda.controller.PedidosTotalesController;
 import co.edu.uniquindio.poo.aplicaciontienda.model.*;
 import javafx.beans.property.SimpleObjectProperty;
 import javafx.beans.property.SimpleStringProperty;
@@ -83,7 +83,7 @@ public class GestionPedidosViewController {
 
 
     void initialize() {
-        HistorialPedidosController historialPedidosController = new HistorialPedidosController(TiendaApp.tienda);
+        PedidosTotalesController PedidosTotalesController = new PedidosTotalesController(TiendaApp.tienda);
         iniView();
     }
 

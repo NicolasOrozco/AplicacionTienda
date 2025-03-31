@@ -1,53 +1,55 @@
+/* Estilo para TableView */
 .table-view {
-    -fx-background-color: #121212;
-    -fx-border-color: #292929;
-    -fx-border-radius: 5px;
+    -fx-background-color: #1e1e1e;
+    -fx-border-color: #333;
+    -fx-border-width: 1px;
+    -fx-text-fill: #ffffff;
 }
 
-/* Fondo de los encabezados */
+/* Estilo para las columnas de la tabla */
+.table-column {
+    -fx-alignment: CENTER;
+}
+
+/* Estilo para el encabezado de la tabla */
 .table-view .column-header-background {
-    -fx-background-color: #1E1E1E;
+    -fx-background-color: #2b2b2b;
 }
 
-/* Estilo de los textos en los encabezados */
-.table-view .column-header {
+.table-view .column-header, .table-view .filler {
     -fx-background-color: transparent;
-    -fx-text-fill: #E0E0E0;
 }
 
-/* Fondo y color de texto de las filas normales */
+.table-view .column-header .label {
+    -fx-text-fill: #ffffff;
+    -fx-font-weight: bold;
+}
+
+/* Estilo para las filas de la tabla */
 .table-row-cell {
-    -fx-background-color: #1A1A1A;
-    -fx-text-fill: #DDDDDD; /* Más claro para mejorar visibilidad */
+    -fx-background-color: #252525;
+    -fx-text-fill: #ffffff;
 }
 
-/* Alternar colores en filas impares */
 .table-row-cell:odd {
-    -fx-background-color: #222222;
+    -fx-background-color: #2b2b2b;
+    -fx-text-fill: #ffffff;
 }
 
-/* Estilo de la fila seleccionada */
 .table-row-cell:selected {
-    -fx-background-color: #444444;
-    -fx-text-fill: #FFFFFF; /* Blanco para mejorar contraste */
+    -fx-background-color: #3a3a3a;
+    -fx-text-fill: #ffffff;
 }
 
-/* Hover sobre la fila */
-.table-row-cell:hover {
-    -fx-background-color: #333333;
+.table-cell {
+    -fx-text-fill: #ffffff;
 }
 
-/* Estilo de la barra de desplazamiento */
-.scroll-bar {
-    -fx-background-color: #444444;
+/* Estilo para el scrollbar */
+.scroll-bar:horizontal, .scroll-bar:vertical {
+    -fx-background-color: #2b2b2b;
 }
 
 .scroll-bar .thumb {
-    -fx-background-color: #666666;
-}
-
-/* Asegurar que el texto de las columnas siempre sea claro */
-.table-view .column-header .label {
-    -fx-text-fill: #FFFFFF;
-    -fx-font-weight: bold;
+    -fx-background-color: #444;
 }

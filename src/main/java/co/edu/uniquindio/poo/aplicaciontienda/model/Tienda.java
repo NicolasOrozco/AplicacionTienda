@@ -154,22 +154,35 @@ public class Tienda {
         }
     }
 
+    /**
+     * Editar pedido
+     * @param id para buscar un pedido
+     * @param nuevoPedido  pedido que con la informacion que se va a actualizar
+     */
     public void editarPedido(String id, PedidoDTO nuevoPedido){
         pedidos.replaceAll(p -> p.getId().equals(id) ? nuevoPedido : p);
     }
 
     //-------------CRUD PRODUCTO-------------//
-
+    /**
+     * Agrega un nuevo Producto a la tienda
+     * @param producto el pedido a agregar
+     */
     public void agregarProducto(ProductoRecord producto) {
         productos.add(producto);
     }
 
+    /**
+     * Elimina un pedido
+     * @param name nombre del producto a eliminar
+     */
     public void eliminarProducto(String name){
         productos.removeIf(productoRecord -> productoRecord.nombre().equals(name));
     }
     
     //-------------OTROS MÉTODOS-------------//
 
+     
     public LinkedList<PedidoDTO> obtenerPedidosActivos() {
         LinkedList<PedidoDTO> pedidosActivos = new LinkedList<>();
 

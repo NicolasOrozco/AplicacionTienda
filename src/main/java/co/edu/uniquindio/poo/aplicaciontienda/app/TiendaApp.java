@@ -21,8 +21,10 @@ public class TiendaApp extends Application {
     public void start(Stage stage) {
         primaryStage = stage;
         //pedidos de prueba
-        tienda.agregarPedido(new PedidoDTO("001",new ClienteDTO("raul","100"),new DireccionRecord("armenia","630001","15-14")));
-        tienda.agregarPedido(new PedidoDTO("002",new ClienteDTO("novia de raul","200"),new DireccionRecord("armenia","630001","15-14")));
+        ClienteDTO cliente = new ClienteDTO("raul","100");
+        ClienteDTO cliente2 = new ClienteDTO("novia de raul","200");
+        tienda.agregarPedido(new PedidoDTO("001",cliente,new DireccionRecord("armenia","630001","15-14")));
+        tienda.agregarPedido(new PedidoDTO("002",cliente2,new DireccionRecord("armenia","630001","15-14")));
         openHomeView();
     }
 
